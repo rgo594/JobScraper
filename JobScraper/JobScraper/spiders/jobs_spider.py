@@ -4,7 +4,6 @@ import scrapy
 class JobsSpider(scrapy.Spider):
     name = "jobs"
     start_urls = [
-        # 'https://mangaread.co/manga/kanojo-okarishimasu/'
         'https://www.indeed.com/jobs?q=data%20engineer&l',
     ]
 
@@ -16,6 +15,7 @@ class JobsSpider(scrapy.Spider):
                 'company': job.xpath('.//a[@data-tn-element ="companyName"]/text()').getall(),
                 'comp2': job.xpath('.//span[@class ="companyName"]/text()').getall(),
                 'location': job.css('div.companyLocation::text').getall(),
+                'salary': job.xpath('.//span[@class ="salary-snippet"]/text()').get(),
             }
 
         next_page = response.xpath('//a[@aria-label="Next"]/@href').get()
