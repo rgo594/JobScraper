@@ -1,1 +1,4 @@
 test2.json
+**.json
+*.json
+C:\Users\rgo59\PycharmProjects\JobScraper\test2.json
