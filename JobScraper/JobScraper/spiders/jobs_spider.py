@@ -4,11 +4,17 @@ class JobsSpider(scrapy.Spider):
     name = "jobs"
     start_urls = [
         'https://www.indeed.com/jobs?q=data%20engineer&l',
+        #'https://mangaread.co/manga/kanojo-okarishimasu/'
     ]
 
     def parse(self, response):
         jobArr = []
         i = 0
+
+        # for job in response.css('div'):
+        #     yield{
+        #         'coo': job.css('div::text').getall()
+        #     }
         for job in response.xpath('.//div[@class="job_seen_beacon"]'):
                 jobDict = {}
                 jobDict['position'] = job.xpath('.//h2[contains(@class,"jobTitle")]//span[@title]/text()').get()

@@ -1,3 +1,5 @@
+**.json
+.json
 JobScraper\test2.json\*.json
 JobScraper\test2.json\**.json
 \Users\rgo59\PycharmProjects\JobScraper\test2.json
